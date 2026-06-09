@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charlton Tech Guy | Local Tech Help for Homes & Small Businesses</title>
+    <meta name="description" content="Local technology support for homes, individuals, seniors, and small businesses in Charlton, MA. Wi-Fi, printers, computers, smart devices, and AI help — no jargon, no runaround.">
+    <meta property="og:title" content="Charlton Tech Guy — Local Tech Help for Homes and Small Businesses">
+    <meta property="og:description" content="Practical, patient technology support in Charlton, MA and surrounding towns. No corporate runaround — just clear, local help.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://charltontechguy.com">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1200&h=630&fit=crop">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="theme-color" content="#1e293b">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.0.9em%22 font-size=%2290%22>💻</text></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <!--
+    TODO: Replace placeholder contact info with real details before going live.
+    TODO: Connect contact form to a form service (e.g., Formspree, Netlify Forms).
+    TODO: Add analytics script tag (e.g., Plausible, Fathom) if desired.
+    TODO: Update JSON-LD schema with real address, phone, email, hours, and service radius.
+    -->
+
+    <!-- Local Business Schema for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://charltontechguy.com",
+        "name": "Charlton Tech Guy",
+        "description": "Local technology support for homes, individuals, seniors, and small businesses in Charlton, MA. Wi-Fi, printers, computers, smart devices, and AI help — no jargon, no runaround.",
+        "url": "https://charltontechguy.com",
+        "telephone": "<!-- TODO: Replace with real number -->(555) 123-4567",
+        "email": "<!-- TODO: Replace with real email -->hello@charltontechguy.com",
+        "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1200",
+        "priceRange": "$$",
+        "areaServed": [
+            {
+                "@type": "City",
+                "name": "Charlton",
+                "sameAs": "https://en.wikipedia.org/wiki/Charlton,_Massachusetts"
+            },
+            {
+                "@type": "City",
+                "name": "Oxford"
+            },
+            {
+                "@type": "City",
+                "name": "Dudley"
+            },
+            {
+                "@type": "City",
+                "name": "Southbridge"
+            },
+            {
+                "@type": "City",
+                "name": "Sturbridge"
+            },
+            {
+                "@type": "City",
+                "name": "Spencer"
+            },
+            {
+                "@type": "City",
+                "name": "Leicester"
+            },
+            {
+                "@type": "City",
+                "name": "Auburn"
+            }
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Charlton",
+            "addressRegion": "MA",
+            "addressCountry": "US"
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "17:00"
+            }
+        ],
+        "sameAs": [
+            "https://charltontechguy.com"
+        ],
+        "founder": {
+            "@type": "Person",
+            "name": "Eldon Elledge",
+            "jobTitle": "Technology Specialist"
+        }
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ===== HEADER / NAVIGATION ===== -->
+    <header class="site-header">
+        <nav class="container nav-container" aria-label="Primary Navigation">
+            <div class="logo">
+                <a href="#home" class="logo-link">
+                    <span class="logo-icon" aria-hidden="true">💻</span>
+                    <span class="logo-text">Charlton<span class="text-accent">Tech</span>Guy</span>
+                </a>
+            </div>
+            <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+                <span class="sr-only">Menu</span>
+                <span class="hamburger" aria-hidden="true"></span>
+            </button>
+            <ul id="primary-navigation" class="nav-list" data-visible="false" role="list">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#small-business" class="nav-link">Small Business</a></li>
+                <li><a href="#ai-help" class="nav-link">AI Help</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <!-- ===== HERO SECTION ===== -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="badge">Serving Charlton and Surrounding MA Communities</span>
+                    <h1>Local Tech Help for Homes and Small Businesses</h1>
+                    <p class="hero-tagline">Helping non-technical people with all the technical things.</p>
+                    <p class="hero-sub">I explain things in a way that doesn't require a technical degree. No jargon, no condescension — just clear, patient help when technology gets frustrating.</p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary">Request Help</a>
+                        <a href="#services" class="btn btn-outline">View Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW I CAN HELP (Service Cards Overview) ===== -->
+        <section id="services" class="py-large">
+            <div class="container">
+                <div class="text-center mb-large">
+                    <h2 class="section-title">How I Can Help</h2>
+                    <p class="section-subtitle">Plain-English tech support for the problems that slow you down. No degree required, just a clear explanation and a practical fix.</p>
+                </div>
+                <div class="grid-3">
+                    <div class="service-item">
+                        <span class="service-icon" aria-hidden="true">🏠</span>
+                        <h3>Home Tech Help</h3>
+                        <p>Computer setup, printer troubleshooting, email help, password cleanup, file organization, backup setup, phone and tablet help, and new device setup.</p>
+                    </div>
+                    <div class="service-item">
+                        <span class="service-icon" aria-hidden="true">📶</span>
+                        <h3>Wi-Fi &amp; Connectivity</h3>
+                        <p>Router setup, dead zone fixes, smart TV and streaming connection help, device connectivity, and secure Wi-Fi configuration.</p>
+                    </div>
+                    <div class="service-item">
+                        <span class="service-icon" aria-hidden="true">💼</span>
+                        <h3>Small Business Tech</h3>
+                        <p>Microsoft 365 setup and cleanup, business email, file organization, backup planning, cybersecurity guidance, and workflow improvements.</p>
+                    </div>
+                    <div class="service-item">
+                        <span class="service-icon" aria-hidden="true">🏡</span>
+                        <h3>Smart Home Setup</h3>
+                        <p>Doorbells, cameras, smart thermostats, smart speakers, streaming devices, app setup, and privacy guidance.</p>
+                    </div>
+                    <div class="service-item">
+                        <span class="service-icon" aria-hidden="true">🤖</span>
+                        <h3>AI Help &amp; Training</h3>
+                        <p>Understand ChatGPT, Microsoft Copilot, and AI tools. Safe, practical guidance for everyday tasks and small business use.</p>
+                    </div>
+                    <div class="service-item">
+                        <span class="service-icon" aria-hidden="true">🔧</span>
+                        <h3>Computer Setup &amp; Troubleshooting</h3>
+                        <p>New computer setup, performance tuning, malware cleanup, software installation, and hardware guidance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FOR HOMES SECTION ===== -->
+        <section class="py-large bg-light">
+            <div class="container grid-2-asym">
+                <div>
+                    <h2 class="section-title">For Your Home</h2>
+                    <p class="lead">Technology should make life easier — but printers stop connecting, Wi-Fi gets unreliable, passwords become a mess, and new devices are confusing.</p>
+                    <p>Whether you need help setting up a new computer, fixing spotty Wi-Fi, organizing your email, or connecting a smart TV, Charlton Tech Guy provides patient, clear help.</p>
+                    <ul class="service-list" style="margin-top:1.5rem;">
+                        <li>Computer and printer setup</li>
+                        <li>Wi-Fi and home network help</li>
+                        <li>Email and password organization</li>
+                        <li>Smart home device setup</li>
+                        <li>Backup and file organization</li>
+                        <li>Malware and security cleanup</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="image-placeholder" aria-label="Home office or desk setup">
+                        <span aria-hidden="true" style="font-size:4rem;">🏠</span>
+                    </div>
+                </div>
+                <div style="text-align:center;margin-top:1.5rem;">
+                    <a href="#contact" class="btn btn-primary">Get Home Tech Help</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FOR SMALL BUSINESSES SECTION ===== -->
+        <section id="small-business" class="py-large">
+            <div class="container">
+                <div class="text-center mb-large">
+                    <h2 class="section-title">For Small Businesses</h2>
+                    <p class="section-subtitle">Practical tech support for businesses too small for a full IT department.</p>
+                </div>
+                <div class="grid-2-asym" style="margin-bottom:3rem;">
+                    <div>
+                        <p class="lead">Running a small business is hard enough without losing hours to email problems, messy files, broken workflows, disconnected tools, or confusing software choices.</p>
+                        <p>Charlton Tech Guy helps solo business owners, local shops, trades, and professional services get their technology working so they can focus on running their business.</p>
+                        <ul class="service-list" style="margin-top:1.5rem;">
+                            <li>Microsoft 365 setup and cleanup</li>
+                            <li>Business email and domain guidance</li>
+                            <li>Shared file organization</li>
+                            <li>Backup planning and setup</li>
+                            <li>Basic cybersecurity practices</li>
+                            <li>New computer and device setup</li>
+                            <li>Simple automations and workflow help</li>
+                            <li>AI readiness and tool guidance</li>
+                            <li>Vendor and software selection support</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="image-placeholder" aria-label="Small business workspace">
+                            <span aria-hidden="true" style="font-size:4rem;">💼</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align:center;margin-top:1.5rem;">
+                    <a href="#contact" class="btn btn-primary">Get Business Tech Help</a>
+                </div>
+                <div class="grid-2" style="margin-bottom:2rem;">
+                    <div class="card">
+                        <h3>Good Fit For</h3>
+                        <ul class="service-list">
+                            <li>Solo business owners</li>
+                            <li>Local shops and retail</li>
+                            <li>Trades and service businesses</li>
+                            <li>Professional services</li>
+                            <li>Home-based businesses</li>
+                            <li>Small teams without internal IT</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Not Enterprise IT — Just Practical Help</h3>
+                        <p>This is not a full managed service provider. It is practical, experienced support for common business technology problems — without the long contracts or corporate overhead.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== AI HELP WITHOUT THE HYPE ===== -->
+        <section id="ai-help" class="py-large bg-light">
+            <div class="container">
+                <div class="text-center mb-large">
+                    <h2 class="section-title">AI Help Without the Hype</h2>
+                    <p class="section-subtitle">You don't need to become an AI expert to use AI well.</p>
+                </div>
+                <div class="grid-2">
+                    <div>
+                        <p class="lead">AI can be useful — but only when used safely and for the right tasks. Charlton Tech Guy helps individuals and small businesses understand where tools like ChatGPT and Microsoft Copilot can help, where they can create risk, and how to use them responsibly.</p>
+                        <h3 style="margin-top:2rem;margin-bottom:1rem;">What AI Can Help With</h3>
+                        <ul class="service-list">
+                            <li>Drafting clearer emails</li>
+                            <li>Summarizing notes and documents</li>
+                            <li>Organizing tasks and creating checklists</li>
+                            <li>Brainstorming marketing ideas</li>
+                            <li>Improving customer communication</li>
+                            <li>Creating checklists and templates</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="card" style="border-left-color:#f59e0b;">
+                            <h3>Where AI Creates Risk</h3>
+                            <p>Not everything belongs in an AI tool. I provide clear, practical guidance on what not to upload, when to be cautious, and how to protect personal and business data.</p>
+                        </div>
+                        <div class="card">
+                            <h3>What I Offer</h3>
+                            <ul class="service-list">
+                                <li>Safe everyday AI use guidance</li>
+                                <li>Prompt writing basics</li>
+                                <li>AI tool selection advice</li>
+                                <li>Basic AI policy guidance for small businesses</li>
+                                <li>Practical use cases for real work</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align:center;margin-top:2.5rem;">
+                    <a href="#contact" class="btn btn-primary">Ask About AI Help</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== WHY CHOOSE (Trust Section) ===== -->
+        <section class="py-large">
+            <div class="container">
+                <div class="text-center mb-large">
+                    <h2 class="section-title">Why Choose Charlton Tech Guy</h2>
+                    <p class="section-subtitle">Local, experienced, and focused on helping you get unstuck.</p>
+                </div>
+                <div class="grid-3">
+                    <div class="service-item" style="border-bottom-color:var(--accent);">
+                        <h3>Local Help, Not a Call Center</h3>
+                        <p>When you call, you get someone local who understands the area and shows up when promised.</p>
+                    </div>
+                    <div class="service-item" style="border-bottom-color:var(--accent);">
+                        <h3>No Degree Required</h3>
+                        <p>You don't need to know technical terms to get good help. I explain things in plain English — and if I use a word you don't know, that's on me, not you.</p>
+                    </div>
+                    <div class="service-item" style="border-bottom-color:var(--accent);">
+                        <h3>Practical Recommendations</h3>
+                        <p>I recommend what you actually need — not the most expensive option or the latest gadget.</p>
+                    </div>
+                    <div class="service-item" style="border-bottom-color:var(--accent);">
+                        <h3>Experience That Matters</h3>
+                        <p>Decades of experience in software engineering, systems, and business technology — applied to everyday problems.</p>
+                    </div>
+                    <div class="service-item" style="border-bottom-color:var(--accent);">
+                        <h3>No Pressure</h3>
+                        <p>I don't sell subscriptions, push unnecessary tools, or lock you into long contracts.</p>
+                    </div>
+                    <div class="service-item" style="border-bottom-color:var(--accent);">
+                        <h3>Clear Next Steps</h3>
+                        <p>You always know what the problem is, what the fix involves, and what it will cost before work begins.</p>
+                    </div>
+                </div>
+                <div style="text-align:center;margin-top:2.5rem;">
+                    <a href="#contact" class="btn btn-primary">Ready to Get Started?</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW IT WORKS ===== -->
+        <section class="py-large bg-light">
+            <div class="container">
+                <div class="text-center mb-large">
+                    <h2 class="section-title">How It Works</h2>
+                    <p class="section-subtitle">Simple steps to get your technology working again.</p>
+                </div>
+                <div class="grid-2" style="max-width:800px;margin:0 auto;">
+                    <div class="card">
+                        <h3>1. Tell me what's not working</h3>
+                        <p>Call, text, email, or use the contact form. Describe the problem — no detail is too small.</p>
+                    </div>
+                    <div class="card">
+                        <h3>2. I help identify the issue</h3>
+                        <p>I'll ask a few questions to understand what's going on and figure out the likely cause.</p>
+                    </div>
+                    <div class="card">
+                        <h3>3. We decide the best next step</h3>
+                        <p>I'll explain the options, what's involved, and what it will cost. No surprises.</p>
+                    </div>
+                    <div class="card">
+                        <h3>4. You get practical help</h3>
+                        <p>Setup, guidance, repair, or referral — you get the help you need and understand what was done.</p>
+                    </div>
+                </div>
+                <div style="text-align:center;margin-top:2.5rem;">
+                    <a href="#contact" class="btn btn-primary">Tell Me What's Not Working</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SERVICE AREA ===== -->
+        <section class="py-large">
+            <div class="container">
+                <div class="text-center mb-large">
+                    <h2 class="section-title">Service Area</h2>
+                    <p class="section-subtitle">I serve Charlton and nearby communities throughout south-central Massachusetts.</p>
+                </div>
+                <div style="max-width:700px;margin:0 auto;">
+                    <div style="background:var(--bg-light);border-radius:1rem;padding:2.5rem;text-align:center;box-shadow:var(--shadow);">
+                        <span aria-hidden="true" style="font-size:3rem;display:block;margin-bottom:1rem;">📍</span>
+                        <p class="lead" style="margin-bottom:1rem;">Based in Charlton, MA</p>
+                        <p style="color:var(--text-muted);margin-bottom:1.5rem;">Typically available throughout southern Worcester County. Contact me to confirm availability for your specific location.</p>
+                        <!-- TODO: Replace with confirmed service radius and town list -->
+                        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.5rem;max-width:500px;margin:0 auto;">
+                            <span style="background:var(--white);padding:0.4rem 1rem;border-radius:2rem;font-size:0.9rem;border:1px solid #e2e8f0;">Charlton</span>
+                            <span style="background:var(--white);padding:0.4rem 1rem;border-radius:2rem;font-size:0.9rem;border:1px solid #e2e8f0;">Oxford</span>
+                            <span style="background:var(--white);padding:0.4rem 1rem;border-radius:2rem;font-size:0.9rem;border:1px solid #e2e8f0;">Dudley</span>
+                            <span style="background:var(--white);padding:0.4rem 1rem;border-radius:2rem;font-size:0.9rem;border:1px solid #e2e8f0;">Southbridge</span>
+                            <span style="background:var(--white);padding:0.4rem 1rem;border-radius:2rem;font-size:0.9rem;border:1px solid #e2e8f0;">Sturbridge</span>
+                            <span style="background:var(--white);padding:0.4rem 1rem;border-radius:2rem;font-size:0.9rem;border:1px solid #e2e8f0;">Spencer</span>
+                            <span style="background:var(--white);padding:0.4rem 1rem;border-radius:2rem;font-size:0.9rem;border:1px solid #e2e8f0;">Leicester</span>
+                            <span style="background:var(--white);padding:0.4rem 1rem;border-radius:2rem;font-size:0.9rem;border:1px solid #e2e8f0;">Auburn</span>
+                            <span style="background:var(--white);padding:0.4rem 1rem;border-radius:2rem;font-size:0.9rem;border:1px solid #e2e8f0;">and more</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ABOUT SECTION ===== -->
+        <section id="about" class="py-large bg-light">
+            <div class="container grid-2-asym" style="grid-template-columns: 1fr 1.6fr;">
+                <div>
+                    <div class="image-placeholder" aria-label="Photo of Eldon Elledge, Charlton Tech Guy">
+                        <span aria-hidden="true" style="font-size:4rem;">👤</span>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="section-title">About Charlton Tech Guy</h2>
+                    <p class="lead">Hi, I'm Eldon Elledge. I live in Charlton, MA, and I've spent decades working in software engineering, systems architecture, AI, and business technology leadership.</p>
+                    <p>This site exists for a simpler reason: people and small businesses often need someone local who can explain the problem, fix what can be fixed, and help them make better technology decisions without making the process stressful.</p>
+                    <p>My approach is simple: I don't expect you to know technical terms, and I won't make you feel like you should. If I use a word you don't understand, that's my mistake, not yours. I explain things clearly because technology should be understandable — not something you need a degree to deal with.</p>
+                    <p>I also run <strong>Peak Agile Solutions</strong>, a consulting business focused on AI adoption, software delivery, modernization, and technology leadership. Charlton Tech Guy is the local, practical side of that experience — focused on helping individuals and small businesses with everyday technology problems without the corporate approach.</p>
+                    <div class="about-meta">
+                        <p><strong>Location:</strong> Charlton, MA</p>
+                        <p><strong>Background:</strong> Software engineering, systems architecture, AI, agile, and business technology</p>
+                        <p><strong>Also:</strong> Founder, Peak Agile Solutions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT SECTION ===== -->
+        <section id="contact" class="py-large">
+            <div class="container">
+                <div class="text-center mb-large">
+                    <h2 class="section-title">Get in Touch</h2>
+                    <p class="section-subtitle">Ready to get help? Call, text, email, or use the form below.</p>
+                </div>
+
+                <div class="contact-layout">
+                    <div class="contact-info">
+                        <div class="info-card">
+                            <h3>Contact Information</h3>
+                            <div class="info-item">
+                                <span class="info-icon" aria-hidden="true">📍</span>
+                                <p>Charlton, MA</p>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon" aria-hidden="true">✉️</span>
+                                <p><!-- TODO: Replace with real email -->hello@charltontechguy.com</p>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon" aria-hidden="true">📞</span>
+                                <p><!-- TODO: Replace with real phone -->(555) 123-4567</p>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon" aria-hidden="true">💬</span>
+                                <p>Text or call — I'm local and responsive</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card alert">
+                            <p><strong>⚠️ Not an emergency service.</strong> For hacked bank accounts, active fraud, law enforcement matters, or urgent medical or security issues, contact the proper institution or emergency services first.</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-container">
+                        <!--
+                        TODO: Connect to a form service (Formspree, Netlify Forms, etc.)
+                        Replace action URL and method as needed.
+                        -->
+                        <form id="contact-form" class="contact-form" novalidate>
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" class="form-control" required autocomplete="name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-control" required autocomplete="email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number <span style="font-weight:400;color:var(--text-muted);">(optional)</span></label>
+                                <input type="tel" id="phone" name="phone" class="form-control" autocomplete="tel">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="town">Your Town</label>
+                                <input type="text" id="town" name="town" class="form-control" placeholder="e.g., Charlton, Oxford, Dudley">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="help-type">Type of Help Needed</label>
+                                <select id="help-type" name="help-type" class="form-control">
+                                    <option value="">Select one...</option>
+                                    <option value="home-tech">Home Tech Help</option>
+                                    <option value="wifi">Wi-Fi / Network Help</option>
+                                    <option value="computer">Computer Setup or Troubleshooting</option>
+                                    <option value="printer">Printer or Device Help</option>
+                                    <option value="smart-home">Smart Home Setup</option>
+                                    <option value="small-business">Small Business Tech Support</option>
+                                    <option value="ai-help">AI Help &amp; Training</option>
+                                    <option value="other">Something Else</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Tell me about the problem</label>
+                                <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="preferred-contact" style="margin-bottom:0.5rem;">Preferred Contact Method</label>
+                                <div id="preferred-contact" style="display:flex;gap:1.5rem;flex-wrap:wrap;padding-top:0.25rem;">
+                                    <label style="font-weight:400;display:flex;align-items:center;gap:0.35rem;cursor:pointer;">
+                                        <input type="radio" name="contact-method" value="phone" checked> Phone call
+                                    </label>
+                                    <label style="font-weight:400;display:flex;align-items:center;gap:0.35rem;cursor:pointer;">
+                                        <input type="radio" name="contact-method" value="text"> Text
+                                    </label>
+                                    <label style="font-weight:400;display:flex;align-items:center;gap:0.35rem;cursor:pointer;">
+                                        <input type="radio" name="contact-method" value="email"> Email
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+
+                            <p class="form-note">
+                                <strong>Privacy note:</strong> Do not include passwords, credit card numbers, Social Security numbers, or sensitive account details in this form.
+                            </p>
+                        </form>
+                        <div id="form-status" class="form-status" aria-live="polite"></div>
+
+                        <!-- Mailto fallback -->
+                        <div style="text-align:center;margin-top:1rem;padding-top:1rem;border-top:1px solid #e2e8f0;">
+                            <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.5rem;">Prefer email?</p>
+                            <!-- TODO: Replace with real email -->
+                            <a href="mailto:hello@charltontechguy.com?subject=Tech%20Help%20Request" class="btn btn-outline" style="font-size:0.9rem;">Send Email Directly</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-text">Charlton<span class="text-accent">Tech</span>Guy</span>
+                    <p style="font-size:0.85rem;color:#94a3b8;margin-top:0.25rem;">Local Tech Help for Homes and Small Businesses</p>
+                </div>
+                <nav class="footer-nav" aria-label="Footer Navigation">
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#small-business">Small Business</a>
+                    <a href="#ai-help">AI Help</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <p>Charlton, MA | <!-- TODO: Replace with real phone -->(555) 123-4567 | <!-- TODO: Replace with real email -->hello@charltontechguy.com</p>
+                <p>&copy; <span id="current-year"></span> Charlton Tech Guy. All rights reserved.</p>
+                <p class="footer-legal"><strong>Important:</strong> Do not send passwords or sensitive account information by email or form.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

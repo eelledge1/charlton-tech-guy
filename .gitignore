@@ -1,0 +1,6 @@
+# OpenCode workspace context
+.opencode/
+
+# OS files
+.DS_Store
+Thumbs.db
