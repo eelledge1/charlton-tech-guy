@@ -314,6 +314,19 @@ img {
     flex-wrap: wrap;
 }
 
+.hero-photo {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.hero-photo img {
+    max-width: 100%;
+    height: auto;
+    max-height: 350px;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-lg);
+}
+
 /* --- Layout Grids --- */
 .grid-2 {
     display: grid;
@@ -667,6 +680,10 @@ textarea.form-control {
     .hero-actions .btn {
         width: 100%;
         text-align: center;
+    }
+
+    .hero-photo img {
+        max-height: 250px;
     }
 
     .grid-2,
