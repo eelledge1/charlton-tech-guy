@@ -105,6 +105,56 @@
         }
     }
     </script>
+
+    <!-- FAQ Schema for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Do you make house calls in Charlton and nearby towns?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! I serve Charlton, Oxford, Dudley, Southbridge, Sturbridge, Spencer, Leicester, Auburn, and surrounding areas. No travel fee within my service radius."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much does a typical home tech visit cost?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most home visits are $75–$150 depending on the issue. I always explain the cost upfront — no surprises."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can you help set up Microsoft 365 for my small business?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Absolutely. I handle Microsoft 365 setup, email migration, user management, security policies, and ongoing support for small businesses without internal IT."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you help seniors with technology?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! I specialize in patient, jargon-free help for seniors — computer basics, video calling, password management, scam awareness, and device setup."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can you help with AI tools like ChatGPT or Microsoft Copilot?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. I offer practical guidance on using AI safely for everyday tasks, writing, organizing, and small business workflows — without the hype."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
 
@@ -120,6 +170,9 @@
                     <span class="logo-text">Charlton<span class="text-accent">Tech</span>Guy</span>
                 </a>
             </div>
+            <a href="tel:3035960262" class="header-phone" aria-label="Call now: (303) 596-0262">
+                <span aria-hidden="true">📞</span>
+            </a>
             <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
                 <span class="sr-only">Menu</span>
                 <span class="hamburger" aria-hidden="true"></span>
@@ -464,7 +517,7 @@
                             </div>
                             <div class="info-item">
                                 <span class="info-icon" aria-hidden="true">📞</span>
-                                <p>(303) 596-0262</p>
+                                <p><a href="tel:3035960262">(303) 596-0262</a></p>
                             </div>
                             <div class="info-item">
                                 <span class="info-icon" aria-hidden="true">💬</span>
@@ -485,22 +538,25 @@
                         <form id="contact-form" class="contact-form" novalidate>
                             <div class="form-group">
                                 <label for="name">Full Name</label>
-                                <input type="text" id="name" name="name" class="form-control" required autocomplete="name">
+                                <input type="text" id="name" name="name" class="form-control" required autocomplete="name" minlength="2" maxlength="100" pattern="[A-Za-z\s\-']+" title="Letters, spaces, hyphens, and apostrophes only">
+                                <div class="validation-message" aria-live="polite"></div>
                             </div>
 
                             <div class="form-group">
                                 <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" class="form-control" required autocomplete="email">
+                                <input type="email" id="email" name="email" class="form-control" required autocomplete="email" maxlength="254">
+                                <div class="validation-message" aria-live="polite"></div>
                             </div>
 
                             <div class="form-group">
                                 <label for="phone">Phone Number <span style="font-weight:400;color:var(--text-muted);">(optional)</span></label>
-                                <input type="tel" id="phone" name="phone" class="form-control" autocomplete="tel">
+                                <input type="tel" id="phone" name="phone" class="form-control" autocomplete="tel" pattern="[\d\s\-\(\)]{10,}" placeholder="(303) 596-0262" title="Enter a valid phone number">
+                                <div class="validation-message" aria-live="polite"></div>
                             </div>
 
                             <div class="form-group">
                                 <label for="town">Your Town</label>
-                                <input type="text" id="town" name="town" class="form-control" placeholder="e.g., Charlton, Oxford, Dudley">
+                                <input type="text" id="town" name="town" class="form-control" placeholder="e.g., Charlton, Oxford, Dudley" autocomplete="address-level2" pattern="[A-Za-z\s]+" title="Letters and spaces only">
                             </div>
 
                             <div class="form-group">
@@ -536,6 +592,11 @@
                                         <input type="radio" name="contact-method" value="email"> Email
                                     </label>
                                 </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="preferred-time">Preferred Callback Time <span style="font-weight:400;color:var(--text-muted);">(optional)</span></label>
+                                <input type="datetime-local" id="preferred-time" name="preferred-time" class="form-control">
                             </div>
 
                             <button type="submit" class="btn btn-primary btn-block">Send Message</button>
@@ -576,12 +637,27 @@
                 </nav>
             </div>
             <div class="footer-bottom">
-                <p>Charlton, MA | (303) 596-0262 | eelledge@outlook.com</p>
+                <p>Charlton, MA | <a href="tel:3035960262">(303) 596-0262</a> | <a href="mailto:eelledge@outlook.com">eelledge@outlook.com</a></p>
                 <p>&copy; <span id="current-year"></span> Charlton Tech Guy. All rights reserved.</p>
                 <p class="footer-legal"><strong>Important:</strong> Do not send passwords or sensitive account information by email or form.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Sticky Mobile CTA -->
+    <a href="tel:3035960262" class="mobile-cta" aria-label="Call (303) 596-0262">
+        <span aria-hidden="true">📞</span> Call (303) 596-0262
+    </a>
+
+    <!-- Exit-Intent SMS Prompt -->
+    <div id="exit-intent-modal" class="exit-modal" role="dialog" aria-labelledby="exit-modal-title" aria-modal="true" hidden>
+        <div class="exit-modal-content">
+            <button class="exit-modal-close" aria-label="Close">&times;</button>
+            <h3 id="exit-modal-title">Before you go…</h3>
+            <p>Text me your tech problem at <a href="tel:3035960262">(303) 596-0262</a> — I'll reply within the hour.</p>
+            <button class="btn btn-primary" onclick="document.getElementById('exit-intent-modal').hidden=true;">No thanks</button>
+        </div>
+    </div>
 
     <script src="scripts.js"></script>
 </body>
