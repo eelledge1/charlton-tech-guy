@@ -82,11 +82,30 @@ The form currently simulates submission (shows a success message after 1.5 secon
 3. In `scripts.js`, replace the simulated submission (around line 94) with:
 
 ```javascript
+// Show sending state
+formStatus.textContent = 'Sending your message...';
+formStatus.className = 'form-status text-accent';
+
 fetch('https://formspree.io/f/yourFormID', {
     method: 'POST',
     body: new FormData(contactForm),
     headers: { 'Accept': 'application/json' }
 })
+.then(response => {
+    if (response.ok) {
+        formStatus.textContent = 'Thank you! Your message has been sent. I will respond as soon as possible.';
+        formStatus.className = 'form-status text-success';
+        contactForm.reset();
+        // Clear success message after 8 seconds
+        setTimeout(() => { formStatus.textContent = ''; }, 8000);
+    } else {
+        throw new Error('Form submission failed');
+    }
+})
+.catch(() => {
+    formStatus.textContent = 'Something went wrong. Please try again or email directly.';
+    formStatus.className = 'form-status text-error';
+});
 ```
 
 **Option B: Netlify Forms** (deploy on Netlify, add `netlify` attribute to the form tag)

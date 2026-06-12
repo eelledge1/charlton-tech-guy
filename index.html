@@ -28,7 +28,6 @@
     <!--
     TODO: Connect contact form to a form service (e.g., Formspree, Netlify Forms).
     TODO: Add analytics script tag (e.g., Plausible, Fathom) if desired.
-    TODO: Update JSON-LD schema with confirmed service radius and business hours.
     -->
 
     <!-- Local Business Schema for SEO -->
@@ -45,6 +44,7 @@
         "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1200",
         "priceRange": "$$",
         "areaServed": [
+            <!-- This list mirrors the visible Service Area section (~line 401). Update both together. -->
             {
                 "@type": "City",
                 "name": "Charlton",
@@ -81,8 +81,10 @@
         ],
         "address": {
             "@type": "PostalAddress",
+            "streetAddress": "140 Stafford St",
             "addressLocality": "Charlton",
             "addressRegion": "MA",
+            "postalCode": "01507",
             "addressCountry": "US"
         },
         "openingHoursSpecification": [
@@ -94,7 +96,7 @@
             }
         ],
         "sameAs": [
-            "https://charltontechguy.com"
+            "https://eelledge1.github.io/charlton-tech-guy/"
         ],
         "founder": {
             "@type": "Person",
@@ -397,7 +399,7 @@
                         <span aria-hidden="true" style="font-size:3rem;display:block;margin-bottom:1rem;">📍</span>
                         <p class="lead" style="margin-bottom:1rem;">Based in Charlton, MA</p>
                         <p style="color:var(--text-muted);margin-bottom:1.5rem;">Typically available throughout southern Worcester County. Contact me to confirm availability for your specific location.</p>
-                        <!-- TODO: Replace with confirmed service radius and town list -->
+                        <!-- Town list mirrors JSON-LD schema areaServed (~line 46). Update both together. -->
                         <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.5rem;max-width:500px;margin:0 auto;">
                             <span style="background:var(--white);padding:0.4rem 1rem;border-radius:2rem;font-size:0.9rem;border:1px solid #e2e8f0;">Charlton</span>
                             <span style="background:var(--white);padding:0.4rem 1rem;border-radius:2rem;font-size:0.9rem;border:1px solid #e2e8f0;">Oxford</span>
