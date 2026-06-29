@@ -791,6 +791,11 @@ textarea.form-control {
     margin-top: 0;
 }
 
+.form-control.input-error {
+    border-color: var(--error);
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+}
+
 /* --- Responsive: Tablet & Mobile --- */
 @media (max-width: 768px) {
     .hero {

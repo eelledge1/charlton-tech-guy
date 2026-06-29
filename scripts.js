@@ -186,42 +186,80 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // 5. Contact Form Handling
+    // 5. Contact Form Handling (with per-field error messages)
     var contactForm = document.getElementById('contact-form');
     var formStatus = document.getElementById('form-status');
+
+    // Helper: show error on a specific field
+    function showFieldError(inputEl, message) {
+        var errorId = inputEl.id + '-error';
+        var errorEl = document.getElementById(errorId);
+        if (errorEl) {
+            errorEl.textContent = message;
+        }
+        inputEl.setAttribute('aria-invalid', 'true');
+        inputEl.classList.add('input-error');
+    }
+
+    // Helper: clear error on a specific field
+    function clearFieldError(inputEl) {
+        var errorId = inputEl.id + '-error';
+        var errorEl = document.getElementById(errorId);
+        if (errorEl) {
+            errorEl.textContent = '';
+        }
+        inputEl.removeAttribute('aria-invalid');
+        inputEl.classList.remove('input-error');
+    }
+
+    // Helper: clear all field errors
+    function clearAllErrors() {
+        var inputs = contactForm.querySelectorAll('.form-control');
+        inputs.forEach(function (input) {
+            clearFieldError(input);
+        });
+        formStatus.textContent = '';
+        formStatus.className = 'form-status';
+    }
 
     if (contactForm && formStatus) {
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
-            var nameInput = contactForm.querySelector('#name');
-            var name = nameInput ? nameInput.value.trim() : '';
+            // Clear previous errors
+            clearAllErrors();
 
-            // Basic client-side validation
+            var nameInput = contactForm.querySelector('#name');
             var emailInput = contactForm.querySelector('#email');
             var messageInput = contactForm.querySelector('#message');
             var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            var isValid = true;
+            var firstError = null;
 
-            if (!name) {
-                isValid = false;
-                nameInput.focus();
-            } else if (emailInput && !emailInput.value.trim()) {
-                isValid = false;
-                emailInput.focus();
-            } else if (emailInput && !emailPattern.test(emailInput.value.trim())) {
-                isValid = false;
-                emailInput.focus();
-                formStatus.textContent = 'Please enter a valid email address.';
-                formStatus.className = 'form-status text-error';
-                return;
-            } else if (messageInput && !messageInput.value.trim()) {
-                isValid = false;
-                messageInput.focus();
+            // Validate name
+            if (!nameInput.value.trim()) {
+                showFieldError(nameInput, 'Please enter your name.');
+                if (!firstError) firstError = nameInput;
             }
 
-            if (!isValid) {
-                formStatus.textContent = 'Please fill in all required fields.';
+            // Validate email
+            if (!emailInput.value.trim()) {
+                showFieldError(emailInput, 'Please enter your email address.');
+                if (!firstError) firstError = emailInput;
+            } else if (!emailPattern.test(emailInput.value.trim())) {
+                showFieldError(emailInput, 'Please enter a valid email address.');
+                if (!firstError) firstError = emailInput;
+            }
+
+            // Validate message
+            if (!messageInput.value.trim()) {
+                showFieldError(messageInput, 'Please describe your problem.');
+                if (!firstError) firstError = messageInput;
+            }
+
+            // If errors, focus first and show summary
+            if (firstError) {
+                firstError.focus();
+                formStatus.textContent = 'Please fix the errors below.';
                 formStatus.className = 'form-status text-error';
                 return;
             }
@@ -242,10 +280,12 @@ document.addEventListener('DOMContentLoaded', function () {
              *   .then(...)
              */
 
+            var name = nameInput.value.trim();
             setTimeout(function () {
                 formStatus.textContent = 'Thank you, ' + name + '! Your message has been sent. I will respond as soon as possible.';
                 formStatus.className = 'form-status text-success';
                 contactForm.reset();
+                clearAllErrors();
 
                 // Clear success message after 8 seconds
                 setTimeout(function () {
