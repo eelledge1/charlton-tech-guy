@@ -33,6 +33,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-bottom: 60px; /* Account for sticky mobile CTA bar */
 }
 
 body {
@@ -592,7 +593,7 @@ img {
 .form-control {
     width: 100%;
     padding: 0.8rem 1rem;
-    border: 1px solid #cbd5e1;
+    border: 1px solid #94a3b8; /* Slate 400 - passes 3:1 non-text contrast on white */
     border-radius: 0.4rem;
     font-size: 1rem;
     font-family: 'Inter', sans-serif;
@@ -794,6 +795,10 @@ textarea.form-control {
 .form-control.input-error {
     border-color: var(--error);
     box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+}
+
+.form-group:has(.input-error) .validation-message {
+    font-weight: 500;
 }
 
 /* --- Responsive: Tablet & Mobile --- */
