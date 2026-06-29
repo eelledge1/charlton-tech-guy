@@ -1,3 +1,79 @@
+// ===== FOCUS TRAP UTILITIES (Accessibility - WCAG 2.2 AA) =====
+var _trapFocusHandler = null;
+var _lastFocusedElement = null;
+
+function getFocusableElements(containerEl) {
+    var selector = 'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+    return Array.prototype.slice.call(containerEl.querySelectorAll(selector));
+}
+
+function trapFocus(containerEl) {
+    releaseFocusTrap(); // clear any existing trap first
+    var focusable = getFocusableElements(containerEl);
+    if (focusable.length === 0) return;
+
+    // Focus the first focusable element
+    focusable[0].focus();
+
+    _trapFocusHandler = function (e) {
+        if (e.key !== 'Tab') return;
+
+        var currentFocusable = getFocusableElements(containerEl);
+        if (currentFocusable.length === 0) return;
+
+        var firstEl = currentFocusable[0];
+        var lastEl = currentFocusable[currentFocusable.length - 1];
+
+        if (e.shiftKey) {
+            // Shift+Tab: if on first element, wrap to last
+            if (document.activeElement === firstEl) {
+                e.preventDefault();
+                lastEl.focus();
+            }
+        } else {
+            // Tab: if on last element, wrap to first
+            if (document.activeElement === lastEl) {
+                e.preventDefault();
+                firstEl.focus();
+            }
+        }
+    };
+
+    containerEl.addEventListener('keydown', _trapFocusHandler);
+}
+
+function releaseFocusTrap() {
+    if (_trapFocusHandler) {
+        // Remove the handler from whichever element had it
+        // We store it globally so we just clear the reference
+        document.removeEventListener('keydown', _trapFocusHandler);
+        _trapFocusHandler = null;
+    }
+}
+
+// ===== EXIT-INTENT MODAL FOCUS MANAGEMENT =====
+function showExitModal() {
+    var modal = document.getElementById('exit-intent-modal');
+    if (!modal) return;
+
+    _lastFocusedElement = document.activeElement;
+    modal.hidden = false;
+    trapFocus(modal);
+}
+
+function hideExitModal() {
+    var modal = document.getElementById('exit-intent-modal');
+    if (!modal) return;
+
+    releaseFocusTrap();
+    modal.hidden = true;
+
+    // Restore focus
+    if (_lastFocusedElement && _lastFocusedElement.focus) {
+        _lastFocusedElement.focus();
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     'use strict';
 
@@ -18,7 +94,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Close mobile menu if open
                     var navList = document.querySelector('.nav-list');
                     var navToggle = document.querySelector('.mobile-nav-toggle');
-                    if (navList) {
+                    if (navList && navList.getAttribute('data-visible') === 'true') {
+                        releaseFocusTrap();
                         navList.setAttribute('data-visible', 'false');
                     }
                     if (navToggle) {
@@ -34,15 +111,25 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // 2. Mobile Menu Toggle
+    // 2. Mobile Menu Toggle (with focus trap)
     var navToggle = document.querySelector('.mobile-nav-toggle');
     var navList = document.querySelector('.nav-list');
 
     if (navToggle && navList) {
         navToggle.addEventListener('click', function () {
             var isVisible = navList.getAttribute('data-visible') === 'true';
-            navList.setAttribute('data-visible', String(!isVisible));
-            navToggle.setAttribute('aria-expanded', String(!isVisible));
+            var opening = !isVisible;
+
+            navList.setAttribute('data-visible', String(opening));
+            navToggle.setAttribute('aria-expanded', String(opening));
+
+            if (opening) {
+                _lastFocusedElement = document.activeElement;
+                trapFocus(navList);
+            } else {
+                releaseFocusTrap();
+                navToggle.focus();
+            }
         });
 
         // Close mobile menu on click outside (the 30% overlay gap)
@@ -51,8 +138,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 var isNavClick = navList.contains(e.target);
                 var isToggleClick = navToggle.contains(e.target);
                 if (!isNavClick && !isToggleClick) {
+                    releaseFocusTrap();
                     navList.setAttribute('data-visible', 'false');
                     navToggle.setAttribute('aria-expanded', 'false');
+                    navToggle.focus();
                 }
             }
         });
@@ -60,6 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Close mobile menu on ESC key
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape' && navList.getAttribute('data-visible') === 'true') {
+                releaseFocusTrap();
                 navList.setAttribute('data-visible', 'false');
                 navToggle.setAttribute('aria-expanded', 'false');
                 navToggle.focus();
@@ -73,7 +163,30 @@ document.addEventListener('DOMContentLoaded', function () {
         yearEl.textContent = new Date().getFullYear();
     }
 
-    // 4. Contact Form Handling
+    // 4. Exit-Intent Modal
+    var exitModal = document.getElementById('exit-intent-modal');
+    if (exitModal) {
+        // Wire up close button
+        var closeBtn = exitModal.querySelector('.exit-modal-close');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', hideExitModal);
+        }
+
+        // Wire up "No thanks" button
+        var noThanksBtn = exitModal.querySelector('.btn-primary');
+        if (noThanksBtn) {
+            noThanksBtn.addEventListener('click', hideExitModal);
+        }
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && !exitModal.hidden) {
+                hideExitModal();
+            }
+        });
+    }
+
+    // 5. Contact Form Handling
     var contactForm = document.getElementById('contact-form');
     var formStatus = document.getElementById('form-status');
 

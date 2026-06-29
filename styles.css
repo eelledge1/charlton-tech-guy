@@ -693,7 +693,7 @@ textarea.form-control {
 
 .footer-legal {
     margin-top: 0.75rem;
-    font-size: 0.9375rem; /* 15px */
+    font-size: 1rem; /* 16px - minimum for older adults */
     color: #94a3b8;
 }
 
