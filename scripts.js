@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
         yearEl.textContent = new Date().getFullYear();
     }
 
-    // 4. Exit-Intent Modal
+    // 4. Exit-Intent Modal (trigger on mouse leave viewport)
     var exitModal = document.getElementById('exit-intent-modal');
     if (exitModal) {
         // Wire up close button
@@ -184,6 +184,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 hideExitModal();
             }
         });
+
+        // Exit-intent: show modal when mouse leaves top of viewport
+        // Only show once per session
+        var exitShown = sessionStorage.getItem('exitModalShown');
+        if (!exitShown) {
+            document.addEventListener('mouseout', function (e) {
+                if (e.clientY <= 0 && !exitModal.hidden) {
+                    showExitModal();
+                    sessionStorage.setItem('exitModalShown', '1');
+                }
+            });
+        }
     }
 
     // 5. Contact Form Handling (with per-field error messages)

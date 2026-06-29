@@ -801,6 +801,98 @@ textarea.form-control {
     font-weight: 500;
 }
 
+/* --- Reusable Component Classes --- */
+
+/* CTA wrapper (centered button at bottom of section) */
+.cta-wrapper {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.cta-wrapper-lg {
+    text-align: center;
+    margin-top: 2.5rem;
+}
+
+/* Service item with accent border (Why Choose section) */
+.service-item--accent {
+    border-bottom-color: var(--accent);
+}
+
+/* Service area card */
+.service-area-card {
+    background: var(--bg-light);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+/* Town badge */
+.town-badge {
+    background: var(--white);
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    border: 1px solid #e2e8f0;
+}
+
+/* Town list container */
+.town-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Radio group */
+.radio-group {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding-top: 0.25rem;
+}
+
+.radio-label {
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    cursor: pointer;
+}
+
+/* Field hint (optional text) */
+.field-hint {
+    font-weight: 400;
+    color: var(--text-muted);
+}
+
+/* Section intro list spacing */
+.service-list--spaced {
+    margin-top: 1.5rem;
+}
+
+/* Footer brand tagline */
+.footer-tagline {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    margin-top: 0.25rem;
+}
+
+/* Prefers-email prompt */
+.email-prompt {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+/* Small outline button */
+.btn-outline-sm {
+    font-size: 0.9rem;
+}
+
 /* --- Responsive: Tablet & Mobile --- */
 @media (max-width: 768px) {
     .hero {
