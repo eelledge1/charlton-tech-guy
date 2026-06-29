@@ -694,7 +694,101 @@ textarea.form-control {
 .footer-legal {
     margin-top: 0.75rem;
     font-size: 1rem; /* 16px - minimum for older adults */
-    color: #94a3b8;
+    color: #cbd5e1; /* Slate 300 - passes 4.5:1 on #1e293b */
+}
+
+/* --- Sticky Mobile CTA --- */
+.mobile-cta {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: var(--accent);
+    color: var(--white);
+    text-align: center;
+    padding: 1rem;
+    font-weight: 600;
+    font-size: 1.0625rem;
+    text-decoration: none;
+    min-height: var(--touch-target);
+    box-shadow: 0 -2px 8px rgb(0 0 0 / 0.15);
+}
+
+.mobile-cta:hover,
+.mobile-cta:focus-visible {
+    background: var(--accent-hover);
+}
+
+/* --- Exit-Intent Modal --- */
+.exit-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(0 0 0 / 0.6);
+    padding: 1rem;
+}
+
+.exit-modal[hidden] {
+    display: none;
+}
+
+.exit-modal-content {
+    background: var(--white);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+}
+
+.exit-modal-content h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.exit-modal-content p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.exit-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    line-height: 1;
+    padding: 0.25rem;
+    min-width: var(--touch-target);
+    min-height: var(--touch-target);
+}
+
+.exit-modal-close:hover,
+.exit-modal-close:focus-visible {
+    color: var(--text-main);
+}
+
+/* --- Form Validation Messages --- */
+.validation-message {
+    font-size: 0.9rem;
+    color: var(--error);
+    margin-top: 0.35rem;
+    min-height: 0;
+}
+
+.validation-message:empty {
+    margin-top: 0;
 }
 
 /* --- Responsive: Tablet & Mobile --- */
@@ -797,6 +891,10 @@ textarea.form-control {
 
     .service-item:hover {
         transform: none;
+    }
+
+    .mobile-cta {
+        display: block;
     }
 }
 

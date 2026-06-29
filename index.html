@@ -539,25 +539,25 @@
                             <div class="form-group">
                                 <label for="name">Full Name</label>
                                 <input type="text" id="name" name="name" class="form-control" required autocomplete="name" minlength="2" maxlength="100" pattern="[A-Za-z\s\-']+" title="Letters, spaces, hyphens, and apostrophes only" aria-describedby="name-error">
-                                <div id="name-error" class="validation-message" aria-live="polite"></div>
+                                <div id="name-error" class="validation-message" role="alert" aria-live="polite"></div>
                             </div>
 
                             <div class="form-group">
                                 <label for="email">Email Address</label>
                                 <input type="email" id="email" name="email" class="form-control" required autocomplete="email" maxlength="254" aria-describedby="email-error">
-                                <div id="email-error" class="validation-message" aria-live="polite"></div>
+                                <div id="email-error" class="validation-message" role="alert" aria-live="polite"></div>
                             </div>
 
                             <div class="form-group">
-                                <label for="phone">Phone Number <span class="visually-hidden">(optional)</span></label>
+                                <label for="phone">Phone Number <span class="sr-only">(optional)</span></label>
                                 <input type="tel" id="phone" name="phone" class="form-control" autocomplete="tel" pattern="[\d\s\-\(\)]{10,}" placeholder="(303) 596-0262" title="Enter a valid phone number" aria-describedby="phone-error">
-                                <div id="phone-error" class="validation-message" aria-live="polite"></div>
+                                <div id="phone-error" class="validation-message" role="alert" aria-live="polite"></div>
                             </div>
 
                             <div class="form-group">
                                 <label for="town">Your Town</label>
                                 <input type="text" id="town" name="town" class="form-control" placeholder="e.g., Charlton, Oxford, Dudley" autocomplete="address-level2" pattern="[A-Za-z\s\-\.']+" title="Letters, spaces, hyphens, periods, and apostrophes only" aria-describedby="town-error">
-                                <div id="town-error" class="validation-message" aria-live="polite"></div>
+                                <div id="town-error" class="validation-message" role="alert" aria-live="polite"></div>
                             </div>
 
                             <div class="form-group">
@@ -573,13 +573,13 @@
                                     <option value="ai-help">AI Help &amp; Training</option>
                                     <option value="other">Something Else</option>
                                 </select>
-                                <div id="help-type-error" class="validation-message" aria-live="polite"></div>
+                                <div id="help-type-error" class="validation-message" role="alert" aria-live="polite"></div>
                             </div>
 
                             <div class="form-group">
                                 <label for="message">Tell me about the problem</label>
                                 <textarea id="message" name="message" rows="5" class="form-control" required aria-describedby="message-error"></textarea>
-                                <div id="message-error" class="validation-message" aria-live="polite"></div>
+                                <div id="message-error" class="validation-message" role="alert" aria-live="polite"></div>
                             </div>
 
                             <fieldset class="form-group">
@@ -628,7 +628,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <span class="logo-text">Charlton<span class="text-accent">Tech</span>Guy</span>
-                    <p style="font-size:0.85rem;color:#94a3b8;margin-top:0.25rem;">Local Tech Help for Homes and Small Businesses</p>
+                    <p style="font-size:0.85rem;color:#cbd5e1;margin-top:0.25rem;">Local Tech Help for Homes and Small Businesses</p>
                 </div>
                 <nav class="footer-nav" aria-label="Footer Navigation">
                     <a href="#home">Home</a>
