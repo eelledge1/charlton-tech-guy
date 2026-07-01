@@ -6,7 +6,7 @@
     --accent-hover: #1d4ed8;
     --accent-light: #3b82f6;  /* Lighter accent for backgrounds */
     --text-main: #1e293b;     /* Slate 800 - darker for better readability */
-    --text-muted: #475569;    /* Slate 600 - darker for better contrast */
+    --text-muted: #414a5a;    /* Slate 600 -> Adjusted for better contrast */
     --text-light: #f8fafc;    /* Slate 50 */
     --bg-light: #f1f5f9;      /* Slate 100 */
     --white: #ffffff;
